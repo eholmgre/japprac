@@ -340,7 +340,6 @@ def versus(dict1, dict2):
 
 
 if __name__ == '__main__':
-
     parser = argparse.ArgumentParser(description='Learn Japanese')
     grp1 = parser.add_mutually_exclusive_group()
     grp2 = parser.add_mutually_exclusive_group(required=True)
@@ -393,8 +392,9 @@ if __name__ == '__main__':
         char_list = [c for c in user_dict]
         random.shuffle(char_list)
     else:
+        char_list = list()
         for _ in range(args.num):
-            char_list.append(random.choice(user_dict))
+            char_list.append(random.choice(list(user_dict)))
 
     for char in char_list:
         test = input(f'{char}: ')
